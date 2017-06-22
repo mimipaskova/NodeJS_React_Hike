@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import GoogleMapReact from 'google-map-react';
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const divStyle = {
+  width: '500px',
+  height: '500px',
+};
 
 class Story extends Component {
+    static defaultProps = {
+        center: {lat: 43, lng: 25},
+        zoom: 7
+    };
 
     render() {
         console.log(this.props);
@@ -25,13 +36,19 @@ class Story extends Component {
                         {this.props.loc[1]}
                     </p>
                 </div>
-                {/*{this.props.loc.map(coordinate => 
-                    <div className="story-coordinate">
-                        <p>
-                            {coordinate}
-                        </p>
-                    </div>
-                )}*/}
+            </div>
+            <div className="story-mapppp" style={divStyle}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{key: 'AIzaSyCrhRamoch0_4Coysfx8G0ULPWe0nmDwe0'}}
+                    defaultCenter={this.props.center}
+                    defaultZoom={this.props.zoom}
+                >
+                    <AnyReactComponent
+                    lat={this.props.loc[0]}
+                    lng={this.props.loc[0]}
+                    text={this.props.title}
+                    />
+                </GoogleMapReact>
             </div>
 
             <div className="story-below">
