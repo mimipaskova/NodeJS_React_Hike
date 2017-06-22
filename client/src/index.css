@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #ace1ef;
+}
+
+.story-container {
+    cursor: pointer;
+    margin: 20px 150px 15px 150px;
+    padding: 10px;
+    border: 1px solid;
+    /*border-color: transparent;*/
+    border-color: #2e6da4;
+}
+
+.story-container .story-thumbnail {
+    width: 200px;
+    height: 150px;
+}
+
+.story-information {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+.story-information.story-title {
+    font-weight: bold;
+    font-size: 20px;
+	}
+
+
+.story-below {
+
+}
+
+.buttons {
+    float: right;
+    margin: 50px;
+}
