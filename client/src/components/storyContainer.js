@@ -35,7 +35,7 @@ class StoryContainer extends Component {
             .filter(story => {
                 return story.title.toLowerCase().includes(this.state.filterValue)})
             .map(story => {
-                return <Story key={story._id} title={story.title} description={story.description} imageUrl={story.imageUrl} createdDate={story.createdDate} id={story._id} userId={story.userId}/>
+                return <Story key={story._id} title={story.title} description={story.description} loc={story.loc} imageUrl={story.imageUrl} createdDate={story.createdDate} id={story._id} userId={story.userId}/>
             });
         this.setState({content});
     }

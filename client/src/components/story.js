@@ -18,7 +18,20 @@ class Story extends Component {
                     <p>
                         {this.props.description}
                     </p>
+                    <p>
+                        {this.props.loc[0]}
+                    </p>
+                    <p>
+                        {this.props.loc[1]}
+                    </p>
                 </div>
+                {/*{this.props.loc.map(coordinate => 
+                    <div className="story-coordinate">
+                        <p>
+                            {coordinate}
+                        </p>
+                    </div>
+                )}*/}
             </div>
 
             <div className="story-below">
