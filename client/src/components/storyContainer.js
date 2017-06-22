@@ -35,7 +35,7 @@ class StoryContainer extends Component {
             .filter(story => {
                 return story.title.toLowerCase().includes(this.state.filterValue)})
             .map(story => {
-                return <Story key={story._id} title={story.title} description={story.description} createdDate={story.createdDate} id={story._id} userId={story.userId}/>
+                return <Story key={story._id} title={story.title} description={story.description} imageUrl={story.imageUrl} createdDate={story.createdDate} id={story._id} userId={story.userId}/>
             });
         this.setState({content});
     }
@@ -48,7 +48,7 @@ class StoryContainer extends Component {
         return (
         <div className="App">
             <label>Filter by name</label>
-            <TextField value={this.state.filterValue} onChange={this.handleChange}/>
+            <TextField id='uniqueid' value={this.state.filterValue} onChange={this.handleChange}/>
             <br/>
             <RaisedButton type="button" onClick={this.getStories}>Get all stories</RaisedButton>
             <br />
