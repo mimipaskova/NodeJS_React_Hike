@@ -4,10 +4,7 @@ var crypto = require('crypto');
 
 var storiesSchema = new Schema({
 	title: {type: String, required: true},
-	loc: {
-		type: { type: String },
-		coordinates: []
-	},
+	loc: [],
 	description: String,
   userId: Schema.Types.ObjectId,
   createdDate: { type: Date, default: Date.now },

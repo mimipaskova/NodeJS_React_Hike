@@ -11,7 +11,9 @@ class AddStory extends Component {
         this.state = {
            title: '',
            description: '',
-           imageUrl: ''
+           imageUrl: '',
+           lat: '',
+           lng: ''
         };
 
         this.onChange    = this.onChange.bind(this);
@@ -27,7 +29,8 @@ class AddStory extends Component {
         var story = {
             title: this.state.title,
             description: this.state.description,
-            imageUrl: this.state.imageUrl
+            imageUrl: this.state.imageUrl,
+            loc: [this.state.lat, this.state.lng]
             // userId: ObjectId("58ff2d1c8f9beb3d8cab4bd2")
         }
         console.log(story);
@@ -40,11 +43,15 @@ class AddStory extends Component {
     render() {
         return (
             <div>
-                <TextField type="text" id="text-field-title"  hintText="title" name="title" value={this.state.title} onChange={this.onChange} />
+                <TextField type="text" id="text-field-title"  floatingLabelText="title" name="title" value={this.state.title} onChange={this.onChange} />
                 <br />
-                <TextField type="text" id="text-field-description" hintText="description" name="description" value={this.state.description} onChange={this.onChange}/>
+                <TextField type="text" id="text-field-description" floatingLabelText="description" name="description" value={this.state.description} onChange={this.onChange}/>
                 <br />
-                <TextField type="text" id="text-field-image" hintText="image url" name="imageUrl" value={this.state.imageUrl} onChange={this.onChange}/>
+                <TextField type="text" id="text-field-image" floatingLabelText="image url" name="imageUrl" value={this.state.imageUrl} onChange={this.onChange}/>
+                <br />
+                <TextField type="text" id="text-field-lat" floatingLabelText="coordinates.lat" name="lat" value={this.state.lat} onChange={this.onChange}/>
+                <br />
+                <TextField type="text" id="text-field-lng" floatingLabelText="coordinates.lng" name="lng" value={this.state.lng} onChange={this.onChange}/>
                 <br />
                 <RaisedButton type="button" onClick={this.addStory}>Add story</RaisedButton>
             </div>
