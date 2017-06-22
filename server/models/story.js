@@ -11,7 +11,7 @@ var storiesSchema = new Schema({
 	description: String,
   userId: Schema.Types.ObjectId,
   createdDate: { type: Date, default: Date.now },
-  picture: {type: String}
+  imageUrl: {type: String}
 });
 
 var Story = mongoose.model('story', storiesSchema, 'stories');

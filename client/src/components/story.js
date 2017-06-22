@@ -7,7 +7,7 @@ class Story extends Component {
         console.log(this.props);
         return (
         <div className="story-container">
-            <img className="story-thumbnail img-thumbnail" src={'https://pbs.twimg.com/media/CdlFCYmXIAAGkiH.jpg'} alt="pandaaa" />
+            <img className="story-thumbnail img-thumbnail" src={this.props.imageUrl} alt="pandaaa" />
             
             <div className="story-information">
                 <div className="story-title">

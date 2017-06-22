@@ -65,7 +65,7 @@ class Profile extends Component {
 
     getStories() {
         var content = this.state.stories.map(story => {
-            return <Story key={story._id} title={story.title} description={story.description} createdDate={story.createdDate} id={story._id} userId={story.userId}/>
+            return <Story key={story._id} title={story.title} description={story.description} imageUrl={story.imageUrl} createdDate={story.createdDate} id={story._id} userId={story.userId}/>
         });
         this.setState({content});
     }

@@ -10,7 +10,8 @@ class AddStory extends Component {
 
         this.state = {
            title: '',
-           description: ''
+           description: '',
+           imageUrl: ''
         };
 
         this.onChange    = this.onChange.bind(this);
@@ -25,7 +26,8 @@ class AddStory extends Component {
         console.log(this.state);
         var story = {
             title: this.state.title,
-            description: this.state.description
+            description: this.state.description,
+            imageUrl: this.state.imageUrl
             // userId: ObjectId("58ff2d1c8f9beb3d8cab4bd2")
         }
         console.log(story);
@@ -38,9 +40,11 @@ class AddStory extends Component {
     render() {
         return (
             <div>
-                <TextField type="text" name="title" value={this.state.title} onChange={this.onChange} />
+                <TextField type="text" id="text-field-title"  hintText="title" name="title" value={this.state.title} onChange={this.onChange} />
                 <br />
-                <TextField type="text" name="description" value={this.state.description} onChange={this.onChange}/>
+                <TextField type="text" id="text-field-description" hintText="description" name="description" value={this.state.description} onChange={this.onChange}/>
+                <br />
+                <TextField type="text" id="text-field-image" hintText="image url" name="imageUrl" value={this.state.imageUrl} onChange={this.onChange}/>
                 <br />
                 <RaisedButton type="button" onClick={this.addStory}>Add story</RaisedButton>
             </div>

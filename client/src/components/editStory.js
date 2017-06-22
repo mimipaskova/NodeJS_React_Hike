@@ -11,7 +11,8 @@ class EditStory extends Component {
         this.state = {
            story: [],
            title: '',
-           description: ''
+           description: '',
+           imageUrl: ''
         };
 
         this.onChange    = this.onChange.bind(this);
@@ -29,14 +30,15 @@ class EditStory extends Component {
     fetchStory(storyId) {
         axios.get('/api/story/' + storyId)
         .then(res => this.setState({story: res.data}))
-        .then(() => this.setState({title: this.state.story.title, description: this.state.story.description}))
+        .then(() => this.setState({title: this.state.story.title, description: this.state.story.description, imageUrl: this.state.story.imageUrl}))
         .then((res) => console.log(res));
     }
 
     editStory() {
         var story = {
             title: this.state.title,
-            description: this.state.description
+            description: this.state.description,
+            imageUrl: this.state.imageUrl
         }
         var storyId = this.state.story._id;
         axios.put('/api/story/' + storyId, story)
@@ -48,9 +50,11 @@ class EditStory extends Component {
     render() {
         return (
             <div>
-                <TextField type="text" name="title" value={this.state.title} onChange={this.onChange} />
+                <TextField id="text-field-title" type="text" name="title" value={this.state.title} onChange={this.onChange} />
                 <br />
-                <TextField type="text" name="description" value={this.state.description} onChange={this.onChange}/>
+                <TextField id="text-field-description" type="text" name="description" value={this.state.description} onChange={this.onChange}/>
+                <br />
+                <TextField id="text-field-image" type="text" hintText="image url" name="imageUrl" value={this.state.imageUrl} onChange={this.onChange}/>
                 <br />
                 <RaisedButton type="button" onClick={this.editStory}>Edit story</RaisedButton>
             </div>
