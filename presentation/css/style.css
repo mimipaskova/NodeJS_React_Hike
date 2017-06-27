@@ -51,11 +51,21 @@
 }
 
 .tech-image {
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 100px;
 }
 
 .dest-activity {
 	width: 1000px;
 	height: 760px;
+}
+
+.logo {
+	width: 556px;
+    height: 100px;
+}
+
+.branches {
+	width: 886px;
+	height: 656px;
 }
