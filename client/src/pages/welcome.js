@@ -2,30 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import logo from '../logo.png';
+import '../index.css';
 
 class Welcome extends Component {
 
     render() {
         return (
         <div>
-            <Menu>
+            <Menu className="menu">
                 <MenuItem primaryText="Login" containerElement={<Link to="/login" />} />
                 <MenuItem primaryText="Register" containerElement={<Link to="/register" />} />
                 <MenuItem primaryText="Stories" containerElement={<Link to="/story" />} />
             </Menu>
-            <div className="top-menu">
-            <ul>
-                <li>
-                <Link to="/login">Login</Link>
-                </li>
-                <li>
-                <Link to="/register">Register</Link>
-                </li>
-                <li>
-                <Link to="/story">Stories</Link>
-                </li>
-            </ul>
-            </div>
+            <img className="img-logo" src={logo} alt="Logo" />
       </div>
         );
     }
