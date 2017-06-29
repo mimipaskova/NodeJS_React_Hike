@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import GoogleMapReact from 'google-map-react';
+
+const Pin = ({ text }) => <div className='pin-map' >{text}</div>;
 
 class Story extends Component {
 
@@ -19,27 +22,29 @@ class Story extends Component {
                         {this.props.description}
                     </p>
                     <p>
-                        {this.props.loc[0]}
+                        Lattitude: {this.props.loc[0]}
                     </p>
                     <p>
-                        {this.props.loc[1]}
+                        Longitude: {this.props.loc[1]}
                     </p>
                 </div>
-                {/*{this.props.loc.map(coordinate => 
-                    <div className="story-coordinate">
-                        <p>
-                            {coordinate}
-                        </p>
-                    </div>
-                )}*/}
-            </div>
-
-            <div className="story-below">
-                <div>Споделена от: Иван Иванов</div>
+                <div>Shared from: Ivan {this.props.userId}</div>
                 <div>Дата:{this.props.createdDate}</div>
                 { this.props.id ? <Link to={{ pathname: '/storyy/' + this.props.id }}>See the story</Link> : ''}
                 <br />
                     <Link to={{ pathname: '/edit/' + this.props.id}}>Edit the story</Link>
+            </div>
+            <div className="story-map">
+                <GoogleMapReact
+                    bootstrapURLKeys={{key: 'AIzaSyCrhRamoch0_4Coysfx8G0ULPWe0nmDwe0'}}
+                    defaultCenter={ { lat: Number(this.props.loc[0]), lng: Number(this.props.loc[1]) } }
+                    defaultZoom={7}>
+                    <Pin 
+                    lat={Number(this.props.loc[0])}
+                    lng={Number(this.props.loc[1])}
+                    text={this.props.title}
+                    />
+                </GoogleMapReact>
             </div>
         </div>
         );

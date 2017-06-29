@@ -6,7 +6,8 @@ body {
 }
 
 .story-container {
-    cursor: pointer;
+    width: 80%;
+    height: 350px;
     margin: 20px 150px 15px 150px;
     padding: 10px;
     border: 1px solid;
@@ -17,6 +18,7 @@ body {
 .story-container .story-thumbnail {
     width: 200px;
     height: 150px;
+    float: left;
 }
 
 .story-information {
@@ -31,12 +33,19 @@ body {
 
 
 .story-below {
-
+    display: inline-block;
 }
 
 .buttons {
     float: right;
     margin: 50px;
+}
+
+.story-map {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    float: right;
 }
 
 .img-logo {
@@ -47,4 +56,20 @@ body {
 
 .menu {
     margin: 20px 500px 15px 500px;
+}
+
+.pin-map {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: -20px;
+  top: -20px;
+  border: 5px solid #f44336;
+  border-radius: 40px;
+  background-color: white;
+  text-align: center;
+  color: #3f51b5;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
 }
