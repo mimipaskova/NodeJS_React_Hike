@@ -38,3 +38,8 @@ body {
     float: right;
     margin: 50px;
 }
+
+.story-map {
+    width: 500px;
+    height: 500px;
+}
