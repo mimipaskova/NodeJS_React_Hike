@@ -36,6 +36,7 @@ class AddStory extends Component {
         console.log(story);
         axios.post('/api/story', story)
         .then(res => console.log(res))
+        .then(() => this.props.history.push('/story'))
         .catch(error => console.log(error));
     }
 

@@ -22,6 +22,7 @@ class Profile extends Component {
         this.onChange    = this.onChange.bind(this);
         this.editProfile = this.editProfile.bind(this);
         this.fetchStories = this.fetchStories.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
     }
 
     componentDidMount() {
@@ -54,6 +55,7 @@ class Profile extends Component {
         console.log('logout');
         axios.post('/api/logout')
         .then(res => console.log(res))
+        .then(() => this.props.history.push('/login'))
         .catch(error => console.log(error));
     }
 

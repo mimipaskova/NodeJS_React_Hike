@@ -17,6 +17,7 @@ class Register extends Component {
             password: user.password
         })
         .then(res => console.log(res))
+        .then(() => this.props.history.push('/login'))
         .catch(error => console.log(error));
     }
 
