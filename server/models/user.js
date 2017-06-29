@@ -14,6 +14,7 @@ var User = mongoose.model('user', usersSchema, 'users');
 User.registerUser = function ({ username, password }) {
   var newUser = new User();
   newUser.email = username;
+  newUser.username = username;
   newUser.password = password;
   newUser.salt = crypto.randomBytes(8).toString('hex');
   var hash = crypto.createHash('sha1');
