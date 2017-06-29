@@ -15,6 +15,7 @@ class Login extends Component {
         console.log('Loginnnnnn', user);
         axios.post('/api/login', user)
         .then(res => console.log(res))
+        .then(() => this.props.history.push('/profile'))
         .catch(error => console.log(error));
     }
 
@@ -24,7 +25,6 @@ class Login extends Component {
             <RegisterLoginForm onConfirm={this.loginUser}>
                 Login
             </RegisterLoginForm>
-            <Link to="/profile">Profile</Link>
         </div>
         );
     }
