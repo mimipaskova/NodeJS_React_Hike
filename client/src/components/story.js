@@ -2,17 +2,30 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-const divStyle = {
-  width: '500px',
-  height: '500px',
+const K_WIDTH = 40;
+const K_HEIGHT = 40;
+const greatPlaceStyle = {
+  // initially any map object has left top corner at lat lng coordinates
+  // it's on you to set object origin to 0,0 coordinates
+  position: 'absolute',
+  width: K_WIDTH,
+  height: K_HEIGHT,
+  left: -K_WIDTH / 2,
+  top: -K_HEIGHT / 2,
+
+  border: '5px solid #f44336',
+  borderRadius: K_HEIGHT,
+  backgroundColor: 'white',
+  textAlign: 'center',
+  color: '#3f51b5',
+  fontSize: 16,
+  fontWeight: 'bold',
+  padding: 4
 };
 
+const Pin = ({ text }) => <div className='pin-map'  style={greatPlaceStyle}>{text}</div>;
+
 class Story extends Component {
-    static defaultProps = {
-        center: {lat: 43, lng: 25},
-        zoom: 7
-    };
 
     render() {
         console.log(this.props);
@@ -37,22 +50,21 @@ class Story extends Component {
                     </p>
                 </div>
             </div>
-            <div className="story-mapppp" style={divStyle}>
+            <div className="story-map">
                 <GoogleMapReact
                     bootstrapURLKeys={{key: 'AIzaSyCrhRamoch0_4Coysfx8G0ULPWe0nmDwe0'}}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
-                >
-                    <AnyReactComponent
-                    lat={this.props.loc[0]}
-                    lng={this.props.loc[0]}
+                    defaultCenter={ { lat: Number(this.props.loc[0]), lng: Number(this.props.loc[1]) } }
+                    defaultZoom={7}>
+                    <Pin 
+                    lat={Number(this.props.loc[0])}
+                    lng={Number(this.props.loc[1])}
                     text={this.props.title}
                     />
                 </GoogleMapReact>
             </div>
-
+{/*{{lat: this.props.loc[0], lng :this.props.loc[1]}}*/}
             <div className="story-below">
-                <div>Споделена от: Иван Иванов</div>
+                <div>Споделена от: Иван Иванов {this.props.userId}</div>
                 <div>Дата:{this.props.createdDate}</div>
                 { this.props.id ? <Link to={{ pathname: '/storyy/' + this.props.id }}>See the story</Link> : ''}
                 <br />
