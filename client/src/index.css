@@ -6,7 +6,8 @@ body {
 }
 
 .story-container {
-    cursor: pointer;
+    width: 80%;
+    height: 350px;
     margin: 20px 150px 15px 150px;
     padding: 10px;
     border: 1px solid;
@@ -17,6 +18,7 @@ body {
 .story-container .story-thumbnail {
     width: 200px;
     height: 150px;
+    float: left;
 }
 
 .story-information {
@@ -31,7 +33,7 @@ body {
 
 
 .story-below {
-
+    display: inline-block;
 }
 
 .buttons {
@@ -40,8 +42,10 @@ body {
 }
 
 .story-map {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    float: right;
 }
 
 .img-logo {

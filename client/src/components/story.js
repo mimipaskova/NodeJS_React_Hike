@@ -43,12 +43,17 @@ class Story extends Component {
                         {this.props.description}
                     </p>
                     <p>
-                        {this.props.loc[0]}
+                        Lattitude: {this.props.loc[0]}
                     </p>
                     <p>
-                        {this.props.loc[1]}
+                        Longitude: {this.props.loc[1]}
                     </p>
                 </div>
+                <div>Shared from: Ivan {this.props.userId}</div>
+                <div>Дата:{this.props.createdDate}</div>
+                { this.props.id ? <Link to={{ pathname: '/storyy/' + this.props.id }}>See the story</Link> : ''}
+                <br />
+                    <Link to={{ pathname: '/edit/' + this.props.id}}>Edit the story</Link>
             </div>
             <div className="story-map">
                 <GoogleMapReact
@@ -61,14 +66,6 @@ class Story extends Component {
                     text={this.props.title}
                     />
                 </GoogleMapReact>
-            </div>
-{/*{{lat: this.props.loc[0], lng :this.props.loc[1]}}*/}
-            <div className="story-below">
-                <div>Споделена от: Иван Иванов {this.props.userId}</div>
-                <div>Дата:{this.props.createdDate}</div>
-                { this.props.id ? <Link to={{ pathname: '/storyy/' + this.props.id }}>See the story</Link> : ''}
-                <br />
-                    <Link to={{ pathname: '/edit/' + this.props.id}}>Edit the story</Link>
             </div>
         </div>
         );
