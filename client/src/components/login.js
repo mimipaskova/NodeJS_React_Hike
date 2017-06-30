@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import RegisterLoginForm from './registerLoginForm';
-import { Link } from 'react-router-dom';
 
 class Login extends Component {
 
