@@ -38,6 +38,12 @@ app.get('/profile', function(req, res) {
   res.json(req.user);
 });
 
+app.get('/user/:id', function(req, res) {
+  db.User.findOne({_id: req.params.id})
+        .then(user => user || Promise.reject())
+        .then(user => res.json(user), err => res.sendStatus(404));
+});
+
 app.put('/me', function (req, res) {
     db.User.findOneAndUpdate({_id:req.user._id}, req.body, {new:true})
     .then(

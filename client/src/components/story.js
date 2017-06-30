@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
+import axios from 'axios';
 
 const Pin = ({ text }) => <div className='pin-map' >{text}</div>;
 
 class Story extends Component {
+
+// TODO remove logic from here (constructor, componentDidMount and getProfile)
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            userProfile: '',
+        };
+
+        this.getProfile = this.getProfile.bind(this);
+    }
+
+    componentDidMount() {
+       this.getProfile();
+    }
+
+    getProfile() {
+         axios.get('/api/user/' +  this.props.userId)
+        .then(res => {console.log(res.data); return this.setState({userProfile: res.data})});
+    }
 
     render() {
         console.log(this.props);
@@ -28,8 +49,8 @@ class Story extends Component {
                         Longitude: {this.props.loc[1]}
                     </p>
                 </div>
-                <div>Shared from: Ivan {this.props.userId}</div>
-                <div>Дата:{this.props.createdDate}</div>
+                <div>Created by: {this.state.userProfile.email}</div>
+                <div>Date: {this.props.createdDate}</div>
                 { this.props.id ? <Link to={{ pathname: '/storyy/' + this.props.id }}>See the story</Link> : ''}
                 <br />
                     <Link to={{ pathname: '/edit/' + this.props.id}}>Edit the story</Link>
