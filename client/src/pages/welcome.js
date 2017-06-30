@@ -13,10 +13,9 @@ class Welcome extends Component {
             <Menu className="menu">
                 <MenuItem primaryText="Login" containerElement={<Link to="/login" />} />
                 <MenuItem primaryText="Register" containerElement={<Link to="/register" />} />
-                <MenuItem primaryText="Stories" containerElement={<Link to="/story" />} />
             </Menu>
             <img className="img-logo" src={logo} alt="Logo" />
-      </div>
+        </div>
         );
     }
 }

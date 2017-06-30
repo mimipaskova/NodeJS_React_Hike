@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Story from './story';
+import { Link } from 'react-router-dom';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 
 class ViewStory extends Component {
 
@@ -34,6 +37,10 @@ class ViewStory extends Component {
         console.log(this.state.story, 'fewfewfewfef', this.props.match);
         return (
         <div className="App">
+            <Menu className="menu">
+                <MenuItem primaryText="Home" containerElement={<Link to="/story" />} />
+                <MenuItem primaryText="Profile" containerElement={<Link to="/profile" />} />
+            </Menu>
             {this.state.content}       
         </div>
         );

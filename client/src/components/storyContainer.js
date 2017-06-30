@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Story from './story';
 import { Link } from 'react-router-dom';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
@@ -47,6 +49,10 @@ class StoryContainer extends Component {
     render() {
         return (
         <div className="App">
+            <Menu className="home-menu">
+                <MenuItem primaryText="Home" containerElement={<Link to="/story" />} />
+                <MenuItem primaryText="Profile" containerElement={<Link to="/profile" />} />
+            </Menu>
             <label>Filter by name</label>
             <TextField id='uniqueid' value={this.state.filterValue} onChange={this.handleChange}/>
             <br/>
